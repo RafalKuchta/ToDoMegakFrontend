@@ -1,0 +1,71 @@
+
+header {
+    padding: 5px;
+}
+
+header h1 {
+    margin: 20px;
+    text-align: center;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.add-task {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #80CFA9;
+    border-right: none;
+}
+
+button {
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #80CFA9;
+    color: #80CFA9;
+}
+
+.wrapper-to-do {
+    display: flex;
+}
+
+.tasks-to-do {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.icon-done {
+    margin-left: 10px;
+    color: #80CFA9;
+}
+
+.icon-edit {
+    margin-left: 10px;
+    color: #73B7E5;
+}
+
+.icon-trash {
+    margin-left: 10px;
+    color: #DE7969;
+}
+
+.wrapper-done {
+    display: flex;
+}
+
+.tasks-done {
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+}
