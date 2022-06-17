@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCheck, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 export const App = () => {
-    // @ts-ignore
-    // @ts-ignore
     return (
         <>
 
@@ -14,7 +12,7 @@ export const App = () => {
                 <div className="wrapper">
                     <div className="add-task">
                         <input type="text" placeholder="Nazwa zadania..."/>
-                        <button>Dodaj zadanie</button>
+                        <button>{"Dodaj"}</button>
                     </div>
                 </div>
             </header>
