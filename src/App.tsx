@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCheck, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () => {
+    // @ts-ignore
+    // @ts-ignore
+    return (
+        <>
+
+            <header>
+                <h1><strong>To Do</strong> Lista</h1>
+                <div className="wrapper">
+                    <div className="add-task">
+                        <input type="text" placeholder="Nazwa zadania..."/>
+                        <button>Dodaj zadanie</button>
+                    </div>
+                </div>
+            </header>
+
+            <div className="wrapper-to-do">
+                <div className="tasks-to-do">
+                    <p>Learn Java Script</p>
+                    <div className="action">
+                        <FontAwesomeIcon icon={faCheck} size="xs" className="icon-done"/>
+                        <FontAwesomeIcon icon={faPenToSquare} className="icon-edit"/>
+                        <FontAwesomeIcon icon={faTrashCan} className="icon-trash"/>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div className="wrapper-done">
+                <div className="tasks-to-do">
+                    ... Zrobione
+                </div>
+            </div>
+
+        </>
+    );
 }
-
-export default App;
