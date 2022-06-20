@@ -1,0 +1,41 @@
+header {
+    margin: 5px;
+}
+
+header h1 {
+    margin: 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.add-task {
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #80CFA9;
+    border-right: none;
+    background: white;
+}
+
+
+@Media (max-width: 600px){
+    input {
+        width: 70%;
+    }
+
+    button {
+        width: 30%;
+
+    }
+}
+

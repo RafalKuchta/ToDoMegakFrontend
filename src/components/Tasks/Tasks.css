@@ -1,0 +1,26 @@
+.wrapper-to-do {
+    display: flex;
+}
+
+.tasks-to-do {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.icon-done {
+    margin-left: 10px;
+    color: #80CFA9;
+}
+
+.icon-edit {
+    margin-left: 10px;
+    color: #73B7E5;
+}
+
+.icon-trash {
+    margin-left: 10px;
+    color: #DE7969;
+}
