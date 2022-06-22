@@ -1,24 +1,19 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCheck, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import React, {useState} from 'react';
+
 import { Header } from './components/layout/Header';
 import { Tasks } from './components/Tasks/Tasks';
 import {DoneTasks} from "./components/Done/DoneTasks";
+import { SearchContext } from './context/search.context';
 
 export const App = () => {
-
-    const tasks: any = [
-        {
-            id: 1,
-            description: "Learn Java Script"
-        }
-    ]
-
+    const [search, setSearch] = useState('');
     return (
         <>
-            <Header />
-            <Tasks />
-            <DoneTasks />
+            <SearchContext.Provider value={{search, setSearch}}>
+                <Header />
+                <Tasks />
+                <DoneTasks />
+            </SearchContext.Provider>
         </>
     );
 }
