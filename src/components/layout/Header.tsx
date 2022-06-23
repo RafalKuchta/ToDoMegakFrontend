@@ -1,7 +1,7 @@
-import React, {SyntheticEvent, useContext, useState} from 'react';
-import { Btn } from '../common/Btn';
+import React, {SyntheticEvent, useContext} from 'react';
 import './Header.css';
 import {SearchContext} from "../../context/search.context";
+import {AddForm} from "../Tasks/Add/AddForm";
 
 export const Header = () => {
     const {search, setSearch} = useContext(SearchContext);
@@ -10,7 +10,6 @@ export const Header = () => {
     const setSearchFromLocalState = (e: SyntheticEvent) => {
         e.preventDefault();
         setSearch(search)
-
     }
 
     return (
@@ -26,12 +25,7 @@ export const Header = () => {
                 </form>
             </h1>
 
-            <div className="wrapper">
-                <form className="add-task">
-                    <input type="text" placeholder="Nazwa zadania..."/>
-                    <Btn text="Dodaj"/>
-                </form>
-            </div>
+            <AddForm />
 
         </header>
     );

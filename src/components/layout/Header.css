@@ -21,6 +21,7 @@ header h1 {
 input {
     width: 80%;
     padding: 10px;
+    margin-bottom: 10px;
     border-radius: 3px;
     border: 1px solid #80CFA9;
     border-right: none;
