@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import { Header } from './components/layout/Header';
 import { Tasks } from './components/Tasks/Tasks';
-import {DoneTasks} from "./components/Done/DoneTasks";
+import {DoneTasks} from "./components/Tasks/Done/DoneTasks";
 import { SearchContext } from './context/search.context';
 import { LoadingContext } from './context/loading.context';
 

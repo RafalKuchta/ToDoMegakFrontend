@@ -14,13 +14,33 @@
     margin-left: 10px;
     color: #80CFA9;
 }
+.icon-done:active {
+    box-shadow: 0 0 5px green;
+}
+.icon-done:hover {
+    color: green;
+}
+
 
 .icon-edit {
     margin-left: 10px;
     color: #73B7E5;
 }
+.icon-edit:active {
+    box-shadow: 0 0 5px #036fc4;
+}
+.icon-edit:hover {
+    color: #036fc4;
+}
+
 
 .icon-trash {
     margin-left: 10px;
     color: #DE7969;
+}
+.icon-trash:active {
+    box-shadow: 0 0 5px red;
+}
+.icon-trash:hover {
+    color: red;
 }
