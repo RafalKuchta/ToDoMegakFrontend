@@ -6,15 +6,22 @@ import {LoadingContext} from "../../../context/loading.context";
 import './EditTask.css';
 import {useNavigate, useParams} from "react-router";
 
-
-export const EditTask = () => {
+export const EditTask = (props: object) => {
     const {loading, setLoading} = useContext(LoadingContext);
-    const [form, setForm] = useState({
-        name: '',
-    });
+    const [form, setForm] = useState({name:"null"});
 
     const {id} = useParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        (async () => {
+            const res = await fetch(`http://localhost:3001/todo/${id}`);
+            const data = await res.json();
+
+            setForm({name: data.name});
+        })();
+    }, []);
+
 
     const editToDo = async (e: SyntheticEvent) => {
         e.preventDefault();
