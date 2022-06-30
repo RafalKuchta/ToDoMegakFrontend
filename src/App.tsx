@@ -1,41 +1,34 @@
-import React from 'react';
-import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCheck, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import React, {useState} from 'react';
+
+import { Header } from './components/layout/Header';
+import { Tasks } from './components/Tasks/Tasks';
+import { SearchContext } from './context/search.context';
+import { LoadingContext } from './context/loading.context';
+import { Routes, Route } from 'react-router-dom';
+import {EditTask} from "./components/Tasks/Edit/EditTask";
 
 export const App = () => {
+    const [search, setSearch] = useState('');
+    const [loading, setLoading] = useState(false);
+
     return (
         <>
+            <SearchContext.Provider value={{search, setSearch}}>
+                <LoadingContext.Provider value={{loading, setLoading}}>
 
-            <header>
-                <h1><strong>To Do</strong> Lista</h1>
-                <div className="wrapper">
-                    <div className="add-task">
-                        <input type="text" placeholder="Nazwa zadania..."/>
-                        <button>{"Dodaj"}</button>
-                    </div>
-                </div>
-            </header>
+                    <Routes>
 
-            <div className="wrapper-to-do">
-                <div className="tasks-to-do">
-                    <p>Learn Java Script</p>
-                    <div className="action">
-                        <FontAwesomeIcon icon={faCheck} size="xs" className="icon-done"/>
-                        <FontAwesomeIcon icon={faPenToSquare} className="icon-edit"/>
-                        <FontAwesomeIcon icon={faTrashCan} className="icon-trash"/>
-                    </div>
+                        <Route path="/" element={
+                            <>
+                            <Header />
+                            <Tasks />
+                            </>
+                        }/>
+                        <Route path="/edit/:id" element={<EditTask />}/>
 
-                </div>
-            </div>
-
-
-            <div className="wrapper-done">
-                <div className="tasks-to-do">
-                    ... Zrobione
-                </div>
-            </div>
-
+                    </Routes>
+                </LoadingContext.Provider>
+            </SearchContext.Provider>
         </>
     );
 }
