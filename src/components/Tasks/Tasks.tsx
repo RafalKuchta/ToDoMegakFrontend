@@ -2,11 +2,11 @@ import React, {useContext, useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck, faPenToSquare, faTrashCan, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import {SearchContext} from "../../context/search.context";
+import {Link} from "react-router-dom";
 
 import {LoadingContext} from "../../context/loading.context";
 import {TodoEntity} from 'types';
 import './Tasks.css';
-
 
 export const Tasks = () => {
     const {search, setSearch} = useContext(SearchContext);
@@ -19,12 +19,13 @@ export const Tasks = () => {
             const res = await fetch(`http://localhost:3001/todo/search/${search}`);
             const data = await res.json();
 
-            const todo = data.filter((to:any) => !to.completed)
+            const todo = data.filter((to: any) => !to.completed)
             setTodos(todo);
 
-            const done = data.filter((d:any) => d.completed)
+            const done = data.filter((d: any) => d.completed)
             setDone(done);
 
+            setLoading(false);
 
         })();
     }, [loading, search]);
@@ -44,11 +45,6 @@ export const Tasks = () => {
             });
         })();
 
-    };
-
-
-    const editTask = (id: string) => {
-        console.log("Edit " + id);
     };
 
 
@@ -83,10 +79,9 @@ export const Tasks = () => {
     };
 
 
-    setLoading(false);
-
     return (
         <>
+            <h2>Zadania do zrobienia</h2>
             {
                 todos.map(todo => (
                     <div key={todo.id} className="wrapper-to-do">
@@ -99,11 +94,14 @@ export const Tasks = () => {
                                     className="icon-done"
                                     onClick={() => doneTask(todo.id)}
                                 />
-                                <FontAwesomeIcon
+
+                                <Link to={`/edit/${todo.id}`} id={todo.id}>
+                                    <FontAwesomeIcon
                                     icon={faPenToSquare}
                                     className="icon-edit"
-                                    onClick={() => editTask(todo.id)}
                                 />
+                                </Link>
+
                                 <FontAwesomeIcon
                                     icon={faTrashCan}
                                     className="icon-trash"
@@ -115,7 +113,7 @@ export const Tasks = () => {
                 ))
             }
 
-            <h1>Zadania zrobione</h1>
+            <h2>Zadania zrobione</h2>
 
             {
                 done.map(don => (

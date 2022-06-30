@@ -19,7 +19,7 @@ export const Header = () => {
                     <input
                         type="text"
                         className="search-input"
-                        placeholder="Szukaj..."
+                        placeholder="Szukaj zadania..."
                         value={search}
                         onChange={e => setSearch(e.target.value)}/>
                 </form>
