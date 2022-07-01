@@ -32,6 +32,8 @@ h2 {
 }
 
 .icon-done {
+    width: 25px;
+    height: 25px;
     margin-left: 10px;
     color: #80CFA9;
 }
@@ -44,6 +46,8 @@ h2 {
 
 
 .icon-edit {
+    width: 25px;
+    height: 25px;
     margin-left: 10px;
     color: #73B7E5;
 }
@@ -56,6 +60,8 @@ h2 {
 
 
 .icon-trash {
+    width: 25px;
+    height: 25px;
     margin-left: 10px;
     color: #DE7969;
 }
@@ -73,9 +79,6 @@ h2 {
          margin: 40px 20px 20px 20px;
     }
 
-    .icon-done, .icon-edit, .icon-trash {
-        width: 15px;
-    }
 
     .tasks-to-do {
         width: 85%;
