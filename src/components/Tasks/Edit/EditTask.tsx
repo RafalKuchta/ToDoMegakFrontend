@@ -5,6 +5,7 @@ import {LoadingContext} from "../../../context/loading.context";
 
 import './EditTask.css';
 import {useNavigate, useParams} from "react-router";
+import {apiUrl} from "../../../config/api";
 
 export const EditTask = (props: object) => {
     const {loading, setLoading} = useContext(LoadingContext);
@@ -15,7 +16,7 @@ export const EditTask = (props: object) => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3001/todo/${id}`);
+            const res = await fetch(`${apiUrl}/todo/${id}`);
             const data = await res.json();
 
             setForm({name: data.name});
@@ -29,7 +30,7 @@ export const EditTask = (props: object) => {
 
         try {
             navigate('/', {replace: true})
-            await fetch(`http://localhost:3001/todo/edit/${id}`, {
+            await fetch(`${apiUrl}/todo/edit/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

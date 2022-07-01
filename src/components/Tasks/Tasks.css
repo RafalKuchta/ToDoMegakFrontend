@@ -23,6 +23,14 @@ h2 {
     border-radius: 5px;
 }
 
+.task-to-do {
+
+}
+
+.icons-to-do {
+   display: flex;
+}
+
 .icon-done {
     margin-left: 10px;
     color: #80CFA9;
@@ -64,4 +72,13 @@ h2 {
          font-size: 30px;
          margin: 40px 20px 20px 20px;
     }
+
+    .icon-done, .icon-edit, .icon-trash {
+        width: 15px;
+    }
+
+    .tasks-to-do {
+        width: 85%;
+    }
+
 }

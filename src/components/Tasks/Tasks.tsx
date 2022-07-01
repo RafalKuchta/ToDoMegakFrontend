@@ -7,6 +7,8 @@ import {Link} from "react-router-dom";
 import {LoadingContext} from "../../context/loading.context";
 import {TodoEntity} from 'types';
 import './Tasks.css';
+import {apiUrl} from "../../config/api";
+
 
 export const Tasks = () => {
     const {search, setSearch} = useContext(SearchContext);
@@ -16,7 +18,7 @@ export const Tasks = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`http://localhost:3001/todo/search/${search}`);
+            const res = await fetch(`${apiUrl}/todo/search/${search}`);
             const data = await res.json();
 
             const todo = data.filter((to: any) => !to.completed)
@@ -34,7 +36,7 @@ export const Tasks = () => {
     const deleteTask = (id: string) => {
         setLoading(true);
         (async () => {
-            await fetch(`http://localhost:3001/todo/${id}`, {
+            await fetch(`${apiUrl}/todo/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,7 +53,7 @@ export const Tasks = () => {
     const doneTask = (id: string) => {
         setLoading(true);
         (async () => {
-            await fetch(`http://localhost:3001/todo/${id}`, {
+            await fetch(`${apiUrl}/todo/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +68,7 @@ export const Tasks = () => {
     const backTask = (id: string) => {
         setLoading(true);
         (async () => {
-            await fetch(`http://localhost:3001/todo/back/${id}`, {
+            await fetch(`${apiUrl}/todo/back/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -86,8 +88,8 @@ export const Tasks = () => {
                 todos.map(todo => (
                     <div key={todo.id} className="wrapper-to-do">
                         <div className="tasks-to-do">
-                            <p>{todo.name}</p>
-                            <div className="action">
+                            <div className="task-to-do">{todo.name}</div>
+                            <div className="icons-to-do">
                                 <FontAwesomeIcon
                                     icon={faCheck}
                                     size="xs"

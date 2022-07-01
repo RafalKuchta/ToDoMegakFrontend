@@ -4,6 +4,7 @@ import {LoadingContext} from "../../../context/loading.context";
 
 import './AddForm.css';
 import {Spinner} from "../../common/Spinner/Spinner";
+import {apiUrl} from "../../../config/api";
 
 export const AddForm = () => {
     const {loading, setLoading} = useContext(LoadingContext);
@@ -18,7 +19,7 @@ export const AddForm = () => {
 
 
         try {
-            await fetch(`http://localhost:3001/todo`, {
+            await fetch(`${apiUrl}/todo`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,7 +53,7 @@ export const AddForm = () => {
                     name="name"
                     required
                     maxLength={1000}
-                    placeholder="Nazwa zadania..."
+                    placeholder="Dodaj zadanie..."
                     value={form.name}
                     onChange={e => updateForm('name', e.target.value)}
                 />
