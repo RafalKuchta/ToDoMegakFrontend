@@ -121,8 +121,8 @@ export const Tasks = () => {
                 done.map(don => (
                     <div key={don.id} className="wrapper-to-do">
                         <div className="tasks-to-do">
-                            <p>{don.name}</p>
-                            <div className="action">
+                            <div className="task-to-do">{don.name}</div>
+                            <div className="icons-to-do">
                                 <FontAwesomeIcon
                                     icon={faArrowUp}
                                     className="icon-edit"

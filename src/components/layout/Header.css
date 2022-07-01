@@ -44,7 +44,6 @@ input.search-input {
     input.search-input {
         width: 30%;
     }
-
 }
 
 @Media (max-width: 600px){
