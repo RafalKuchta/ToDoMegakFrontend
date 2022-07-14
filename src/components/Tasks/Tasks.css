@@ -23,8 +23,14 @@ h2 {
     border-radius: 5px;
 }
 
+.icons-to-do {
+   display: flex;
+}
+
 .icon-done {
-    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
     color: #80CFA9;
 }
 .icon-done:active {
@@ -36,7 +42,9 @@ h2 {
 
 
 .icon-edit {
-    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
     color: #73B7E5;
 }
 .icon-edit:active {
@@ -48,7 +56,9 @@ h2 {
 
 
 .icon-trash {
-    margin-left: 10px;
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
     color: #DE7969;
 }
 .icon-trash:active {
@@ -64,4 +74,22 @@ h2 {
          font-size: 30px;
          margin: 40px 20px 20px 20px;
     }
+
+    .tasks-to-do {
+        width: 85%;
+    }
+
 }
+
+@Media (max-width: 300px){
+    /*.tasks-to-do {*/
+    /*    flex-direction: column;*/
+    /*}*/
+
+    .add-task {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+}
+
