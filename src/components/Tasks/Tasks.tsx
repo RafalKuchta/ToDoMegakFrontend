@@ -10,7 +10,7 @@ import './Tasks.css';
 import {apiUrl} from "../../config/api";
 
 
-export const Tasks = () => {
+export const Tasks = ({setIsLogined}:any) => {
     const {search, setSearch} = useContext(SearchContext);
     const {loading, setLoading} = useContext(LoadingContext);
     const [todos, setTodos] = useState<TodoEntity[]>([]);
@@ -18,8 +18,14 @@ export const Tasks = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`${apiUrl}/todo/search/${search}`);
+            const res = await fetch('http://localhost:3001/todo/search/');
             const data = await res.json();
+
+            console.log(data)
+
+            if(data.statusCode === 401) {
+                setIsLogined(false)
+            }
 
             const todo = data.filter((to: any) => !to.completed)
             setTodos(todo);
@@ -60,6 +66,7 @@ export const Tasks = () => {
                 },
                 body: JSON.stringify({
                     id,
+                    completed: true,
                 }),
             });
         })();
@@ -68,13 +75,14 @@ export const Tasks = () => {
     const backTask = (id: string) => {
         setLoading(true);
         (async () => {
-            await fetch(`${apiUrl}/todo/back/${id}`, {
+            await fetch(`${apiUrl}/todo/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     id,
+                    completed: false,
                 }),
             });
         })();

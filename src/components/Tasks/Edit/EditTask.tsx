@@ -9,7 +9,7 @@ import {apiUrl} from "../../../config/api";
 
 export const EditTask = (props: object) => {
     const {loading, setLoading} = useContext(LoadingContext);
-    const [form, setForm] = useState({name:"null"});
+    const [form, setForm] = useState({name:""});
 
     const {id} = useParams();
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ export const EditTask = (props: object) => {
 
         try {
             navigate('/', {replace: true})
-            await fetch(`${apiUrl}/todo/edit/${id}`, {
+            await fetch(`${apiUrl}/todo/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
